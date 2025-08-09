@@ -10,9 +10,14 @@
   </head>
   <body>
     <!-- Muzyka w tle -->
-    <audio autoplay loop id="sex">
+    <audio loop id="sex">
       <source src="muzyka.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- Przycisk odtwarzania muzyki -->
+    <button id="playBtn" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; font-size: 16px; z-index: 1000;">
+      ▶ Graj muzykę
+    </button>
 
     <!-- Obrazek latający nad wszystkim -->
     <img src="kolpak.gif" alt="kolpak" class="flying">
@@ -30,10 +35,16 @@
       <img src="2.png" alt="fdcj">
       <img src="3.jpg" alt="jfdppkcpp">
     </div>
-    <p> klysiu siusiak?</p>
+    <p>klysiu siusiak?</p>
 
     <script>
-    document.getElementById('sex').play();
-</script>
+      const audio = document.getElementById('sex');
+      const btn = document.getElementById('playBtn');
+
+      btn.addEventListener('click', () => {
+        audio.play();
+        btn.style.display = 'none'; // schowaj przycisk po kliknięciu
+      });
+    </script>
   </body>
 </html>
